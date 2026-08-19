@@ -73,7 +73,7 @@
       }
     };
     source.onerror=function(){loginMark.textContent='P';};
-    source.src='assets/prime-logo.jpg?v=2';
+    source.src='assets/prime-logo.jpg?v=3';
   }
 
   function applyPrimeBranding(){
