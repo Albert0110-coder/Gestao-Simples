@@ -159,12 +159,12 @@ textarea{min-height:76px;resize:vertical}
   <button data-page="more" onclick="go('more')"><span>•••</span>Mais</button>
 </nav>
 
-<div id="login" class="login on">
+<div id="loginScreen" class="login on">
   <div class="loginbox"><div class="mark">G</div><h2>Gestão Simples</h2><p>Entre com o usuário criado pelo administrador.</p>
     <label class="field">Usuário<input id="loginUser" autocomplete="username" autocapitalize="none"></label>
     <label class="field" style="margin-top:10px">Senha<input id="loginPass" type="password" autocomplete="current-password"></label>
     <div id="loginMsg" class="loginmsg"></div>
-    <button class="primary" style="width:100%;margin-top:8px" onclick="login()">Entrar</button>
+    <button class="primary" style="width:100%;margin-top:8px" onclick="doLogin()">Entrar</button>
   </div>
 </div>
 
@@ -245,5 +245,5 @@ textarea{min-height:76px;resize:vertical}
   <div id="usersList" class="list" style="margin-top:12px"></div>
 </div></div>
 
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body></html>
