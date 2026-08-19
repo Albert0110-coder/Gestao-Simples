@@ -1,5 +1,5 @@
 (function(){
-  var files=['core_v8.js?v=12','sales_v8.js?v=12','admin_v8.js?v=12','prime_custom_v9.js?v=12','prime_service_v10.js?v=12','prime_permissions_v11.js?v=12','prime_product_code_v12.js?v=12'];
+  var files=['core_v8.js?v=13','sales_v8.js?v=13','admin_v8.js?v=13','prime_custom_v9.js?v=13','prime_service_v10.js?v=13','prime_permissions_v11.js?v=13','prime_product_code_v12.js?v=13','prime_preview_v13.js?v=13'];
   function load(i){
     if(i>=files.length)return;
     var s=document.createElement('script');
