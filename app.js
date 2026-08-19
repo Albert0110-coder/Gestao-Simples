@@ -5,7 +5,7 @@
     if(appleTitle)appleTitle.setAttribute('content','Prime');
 
     var style=document.createElement('style');
-    style.textContent='\n.prime-login-logo{display:block;width:min(270px,78vw);height:auto;max-height:180px;object-fit:contain;margin:0 auto 16px;background:transparent!important}\n.login h2{display:none!important}\n.login p{text-align:center;margin:0 0 14px}\n.loginbox{overflow:visible}\n.login .mark{margin:0 auto 16px!important}\n';
+    style.textContent='\n.prime-login-symbol{display:block;width:126px;height:148px;margin:0 auto 8px}\n.prime-login-symbol svg{display:block;width:100%;height:100%;overflow:visible}\n.login h2{display:block!important;text-align:center;font-size:30px;font-weight:900;letter-spacing:.08em;margin:0 0 8px;color:var(--text)}\n.login p{text-align:center;margin:0 0 14px}\n.loginbox{overflow:visible}\n';
     document.head.appendChild(style);
 
     var headerMark=document.querySelector('header .brand .mark');
@@ -19,21 +19,19 @@
 
     var loginMark=document.querySelector('#loginScreen .mark');
     if(loginMark){
-      var logo=document.createElement('img');
-      logo.className='prime-login-logo';
-      logo.alt='Prime';
-      logo.src='assets/prime-logo.svg?v=1';
-      logo.onerror=function(){
-        var fallback=document.createElement('div');
-        fallback.textContent='PRIME';
-        fallback.style.cssText='text-align:center;font-size:38px;font-weight:900;font-style:italic;margin:0 auto 16px;color:#8c63ff';
-        logo.replaceWith(fallback);
-      };
-      loginMark.replaceWith(logo);
+      var symbol=document.createElement('div');
+      symbol.className='prime-login-symbol';
+      symbol.setAttribute('role','img');
+      symbol.setAttribute('aria-label','Logo Prime');
+      symbol.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 250" aria-hidden="true"><defs><linearGradient id="primeGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1edcff"/><stop offset=".48" stop-color="#4770ff"/><stop offset="1" stop-color="#ef00ff"/></linearGradient></defs><rect x="45" y="12" width="130" height="190" rx="28" fill="none" stroke="url(#primeGradient)" stroke-width="13"/><path d="M91 12h38c0 12-6 18-17 18h-4c-11 0-17-6-17-18z" fill="url(#primeGradient)"/><path d="M132 58L48 153h52l-45 85 119-126h-54z" fill="url(#primeGradient)" stroke="#07110d" stroke-width="6" stroke-linejoin="miter"/></svg>';
+      loginMark.replaceWith(symbol);
     }
 
     var loginTitle=document.querySelector('#loginScreen h2');
-    if(loginTitle){loginTitle.textContent='Prime';loginTitle.style.display='none';}
+    if(loginTitle){
+      loginTitle.textContent='PRIME';
+      loginTitle.style.display='block';
+    }
 
     var accountBrand=document.querySelector('#more .customerHero .muted');
     if(accountBrand)accountBrand.textContent='Prime';
