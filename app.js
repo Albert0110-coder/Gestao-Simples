@@ -45,7 +45,7 @@ function cache(){
 function ensureArrays(){
   db.products=db.products||[];db.customers=db.customers||[];db.suppliers=db.suppliers||[];db.sales=db.sales||[];db.buys=db.buys||[];
 }
-async function login(){
+async function doLogin(){
   const username=$('loginUser').value.trim(),password=$('loginPass').value;
   if(!username||!password){$('loginMsg').textContent='Preencha usuário e senha.';return}
   $('loginMsg').textContent='Entrando...';
@@ -53,7 +53,7 @@ async function login(){
     const j=await api('login',{username,password});
     session={token:j.token,user:j.user};
     localStorage.setItem(SESSION_KEY,JSON.stringify(session));
-    $('login').classList.remove('on');
+    $('loginScreen').classList.remove('on');
     await afterLogin();
   }catch(e){$('loginMsg').textContent=e.message}
 }
@@ -78,7 +78,7 @@ async function logout(){
   if(syncTimer)clearInterval(syncTimer);
   $('loginPass').value='';
   $('loginMsg').textContent='';
-  $('login').classList.add('on');
+  $('loginScreen').classList.add('on');
   setSync('Aguardando login');
 }
 async function pull(manual=false){
@@ -323,6 +323,6 @@ function receipt(id,kind){
   try{session=JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{}
   initPeriod();
   renderAll();
-  if(session?.token){$('login').classList.remove('on');afterLogin().catch(()=>logout())}
-  else{$('login').classList.add('on');setSync('Aguardando login')}
+  if(session?.token){$('loginScreen').classList.remove('on');afterLogin().catch(()=>logout())}
+  else{$('loginScreen').classList.add('on');setSync('Aguardando login')}
 })();
