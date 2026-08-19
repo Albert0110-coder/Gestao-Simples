@@ -1,5 +1,5 @@
 (function(){
-  var files=['core_v8.js?v=8','sales_v8.js?v=8','admin_v8.js?v=8'];
+  var files=['core_v8.js?v=9','sales_v8.js?v=9','admin_v8.js?v=9','prime_custom_v9.js?v=9'];
   function load(i){
     if(i>=files.length)return;
     var s=document.createElement('script');
