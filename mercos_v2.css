@@ -1,0 +1,156 @@
+/* PRIME V2 — interface inspirada na organização visual de sistemas de força de vendas */
+:root{
+  --bg:#f5f6f8!important;
+  --panel:#ffffff!important;
+  --panel2:#f7f7fa!important;
+  --line:#e4e3e8!important;
+  --text:#37333d!important;
+  --muted:#8b8792!important;
+  --green:#6534a8!important;
+  --green2:#8050c3!important;
+  --red:#d84d5f!important;
+  --yellow:#e8a63a!important;
+  --blue:#4b89d8!important;
+  --shadow:0 7px 24px rgba(35,27,45,.07)!important;
+}
+html{background:#f5f6f8!important}
+body.mercos-v2{background:#f5f6f8!important;color:#37333d!important;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+body.mercos-v2 header{background:rgba(255,255,255,.96)!important;border-bottom:1px solid #e8e7eb!important;box-shadow:0 1px 0 rgba(34,27,43,.02)!important;backdrop-filter:blur(16px)}
+body.mercos-v2 header .brand h1{color:#37333d!important;font-size:17px!important;font-weight:700!important}
+body.mercos-v2 .sync{color:#99949f!important}
+body.mercos-v2 .iconbtn{background:#fff!important;color:#6a6570!important;border:1px solid #dedce3!important;box-shadow:0 2px 8px rgba(40,30,50,.04)}
+body.mercos-v2 main{max-width:1380px!important;padding:22px 26px 42px!important}
+
+/* menu lateral */
+body.mercos-v2 .nav{background:#fff!important;border-color:#e7e5ea!important;box-shadow:2px 0 14px rgba(42,32,52,.025)!important}
+body.mercos-v2 .navbrand{border-color:#eceaef!important;padding-bottom:20px!important}
+body.mercos-v2 .navbrand .mark{background:linear-gradient(145deg,#39bff5,#6534a8 58%,#d33cd0)!important;color:#fff!important;border-radius:8px!important}
+body.mercos-v2 .navbrand strong{color:#38333e!important;font-size:15px!important;letter-spacing:.04em}
+body.mercos-v2 .navbrand small{color:#a09ba6!important;font-size:10px!important}
+body.mercos-v2 .nav button{color:#6d6873!important;border-radius:6px!important;font-size:12px!important;font-weight:600!important;transition:.16s ease!important}
+body.mercos-v2 .nav button:hover{background:#f6f3fa!important;color:#5d2e9b!important}
+body.mercos-v2 .nav button.on{background:#f2edf8!important;color:#60339d!important;box-shadow:inset 3px 0 #6534a8!important}
+body.mercos-v2 .nav button span{font-size:15px!important;color:inherit!important}
+body.mercos-v2 .v2-nav-section{padding:17px 12px 6px;color:#aaa5b0;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+
+/* superfícies e formulários */
+body.mercos-v2 .hero,body.mercos-v2 .card,body.mercos-v2 .row,body.mercos-v2 .product,body.mercos-v2 .filters,body.mercos-v2 .customerHero,body.mercos-v2 .sheet{background:#fff!important;border-color:#e5e3e9!important;color:#37333d!important;box-shadow:0 4px 16px rgba(38,29,47,.045)!important}
+body.mercos-v2 .hero{background:linear-gradient(135deg,#fff,#faf8fc)!important}
+body.mercos-v2 .eyebrow{color:#6937a7!important}
+body.mercos-v2 .muted,body.mercos-v2 .meta,body.mercos-v2 .field{color:#8d8894!important}
+body.mercos-v2 input,body.mercos-v2 select,body.mercos-v2 textarea{background:#fff!important;color:#39343f!important;border:1px solid #dcd9e1!important;border-radius:5px!important;box-shadow:inset 0 1px 2px rgba(30,20,40,.025)!important}
+body.mercos-v2 input:focus,body.mercos-v2 select:focus,body.mercos-v2 textarea:focus{border-color:#7a4bb5!important;box-shadow:0 0 0 3px rgba(101,52,168,.09)!important}
+body.mercos-v2 .primary{background:#6534a8!important;color:#fff!important;border-color:#6534a8!important;border-radius:5px!important;box-shadow:0 4px 10px rgba(101,52,168,.16)!important}
+body.mercos-v2 .primary:hover{background:#572a95!important;border-color:#572a95!important}
+body.mercos-v2 .secondary{background:#fff!important;color:#5f5965!important;border-color:#dcd9e1!important;border-radius:5px!important}
+body.mercos-v2 .ghost{color:#5e5864!important;border-color:#dcd9e1!important}
+body.mercos-v2 .danger{background:#fff6f7!important;color:#bd4454!important;border-color:#efcdd2!important}
+body.mercos-v2 .linkbtn{color:#6534a8!important}
+body.mercos-v2 .pill{background:#faf8fc!important;border-color:#dfd9e8!important;color:#6f6875!important}
+body.mercos-v2 .stage{background:#fff!important;color:#57515d!important;border-color:#dbd8e0!important}
+body.mercos-v2 .step{border-color:#dfdce3!important;color:#89838e!important}
+body.mercos-v2 .step.on{background:#6534a8!important;color:#fff!important;border-color:#6534a8!important}
+body.mercos-v2 .empty{background:#fff!important;border-color:#ddd9e2!important;color:#99939f!important}
+
+/* Painel V2 */
+body.mercos-v2 #home{color:#37333d!important}
+body.mercos-v2 #home .pd-head{align-items:center!important;margin-bottom:15px!important}
+body.mercos-v2 #home .pd-kicker{color:#7b7580!important;font-size:9px!important;letter-spacing:.09em!important}
+body.mercos-v2 #home .pd-head h2{font-size:23px!important;font-weight:650!important;color:#38333e!important;letter-spacing:-.01em!important}
+body.mercos-v2 #home .pd-head p{color:#928d98!important}
+body.mercos-v2 #home .pd-filter-card,body.mercos-v2 #home .pd-panel,body.mercos-v2 #home .pd-kpi{background:#fff!important;border:1px solid #e4e2e7!important;box-shadow:0 4px 16px rgba(44,34,54,.045)!important}
+body.mercos-v2 #home .pd-filter-card{border-radius:6px!important;padding:14px 16px!important}
+body.mercos-v2 #home .pd-filter-title strong{color:#49434e!important}
+body.mercos-v2 #home .pd-filter-title span{color:#98939e!important}
+body.mercos-v2 #home .pd-clear{color:#6534a8!important}
+body.mercos-v2 #home .pd-filters label{color:#89838e!important}
+body.mercos-v2 #home .pd-filters input,body.mercos-v2 #home .pd-filters select{background:#fff!important;border:1px solid #dcd9e1!important;color:#4e4853!important}
+body.mercos-v2 #home .pd-kpis{gap:12px!important}
+body.mercos-v2 #home .pd-kpi{border-radius:6px!important;padding:16px 17px!important;min-height:112px!important}
+body.mercos-v2 #home .pd-kpi:after{height:3px!important;background:#6534a8!important;opacity:.85!important}
+body.mercos-v2 #home .pd-kpi-accent{background:#fff!important;border-color:#ded8e7!important}
+body.mercos-v2 #home .pd-kpi-top{color:#89838e!important}
+body.mercos-v2 #home .pd-icon{background:#f1edf7!important;color:#6534a8!important;border-radius:4px!important}
+body.mercos-v2 #home .pd-kpi strong{color:#3d3742!important;font-size:21px!important}
+body.mercos-v2 #home .pd-kpi small{color:#9a949f!important}
+body.mercos-v2 #home .pd-panel{border-radius:6px!important;padding:17px!important}
+body.mercos-v2 #home .pd-label{color:#7c7581!important;letter-spacing:.09em!important}
+body.mercos-v2 #home .pd-panel h3{color:#45404a!important;font-size:13px!important}
+body.mercos-v2 #home .pd-chart-total span{color:#99939e!important}
+body.mercos-v2 #home .pd-chart-total strong{color:#4a444f!important}
+body.mercos-v2 #home .pd-gridline{stroke:#e8e5eb!important;opacity:1!important}
+body.mercos-v2 #home .pd-axis-label{fill:#aaa4af!important}
+body.mercos-v2 #home .pd-dot{fill:#46c995!important;stroke:#fff!important}
+body.mercos-v2 #home .pd-summary>div{background:#faf9fb!important;border:1px solid #ebe8ee!important;border-radius:5px!important}
+body.mercos-v2 #home .pd-summary span{color:#98929e!important}
+body.mercos-v2 #home .pd-summary strong{color:#48424d!important}
+body.mercos-v2 #home .pd-stage-track{background:#f1eef3!important;border-color:#e4e0e8!important}
+body.mercos-v2 #home .pd-stage-fill{background:linear-gradient(90deg,#5bc8a0,#6534a8)!important}
+body.mercos-v2 #home .pd-stage-row>span:first-child{color:#6d6772!important}
+body.mercos-v2 #home .pd-products>div,body.mercos-v2 #home .pd-orders>div{border-color:#ebe8ed!important;background:#fff!important;color:#48424d!important}
+
+/* listas no estilo gerenciador */
+body.mercos-v2 .sectionhead h3{color:#413b46!important;font-size:16px!important;font-weight:650!important}
+body.mercos-v2 .filters{border-radius:6px!important;padding:14px!important}
+body.mercos-v2 .row{border-radius:5px!important;padding:14px 16px!important;box-shadow:none!important}
+body.mercos-v2 .row:hover{border-color:#cec7d7!important;box-shadow:0 4px 14px rgba(40,30,50,.045)!important}
+body.mercos-v2 .row h4{color:#46404b!important;font-size:13px!important}
+body.mercos-v2 .row .value{color:#423b49!important}
+body.mercos-v2 .actions button,body.mercos-v2 .actions select{border-radius:4px!important}
+
+/* produtos em formato de tabela visual */
+body.mercos-v2 #products .catalog{grid-template-columns:1fr!important;gap:7px!important}
+body.mercos-v2 #products .product{border-radius:5px!important;box-shadow:none!important}
+body.mercos-v2 #products .product h4{color:#3f3944!important}
+body.mercos-v2 #products .price{color:#493f50!important;font-size:14px!important}
+body.mercos-v2 #products .stockline25{background:#fbfafc!important;border-color:#e5e1e8!important;border-radius:4px!important}
+body.mercos-v2 #products .stockline25 span{color:#908a95!important}
+body.mercos-v2 #products .stockline25 strong{color:#278c68!important}
+body.mercos-v2 #products .stockline25.low strong{color:#bb7e1b!important}
+body.mercos-v2 #products .stockline25.zero{background:#fff8f8!important;border-color:#f0d6d9!important}
+body.mercos-v2 #products .stockline25.zero strong{color:#c84e5b!important}
+@media(min-width:900px){
+  body.mercos-v2{padding-left:220px!important}
+  body.mercos-v2 .nav{width:220px!important;padding:18px 12px!important}
+  body.mercos-v2 #products .product{display:grid!important;grid-template-columns:minmax(210px,1.6fr) minmax(110px,.75fr) minmax(150px,1fr) 110px 175px 150px!important;gap:14px!important;align-items:center!important;padding:13px 15px!important}
+  body.mercos-v2 #products .product>h4,body.mercos-v2 #products .product>.meta,body.mercos-v2 #products .product>.price,body.mercos-v2 #products .product>.stockline25,body.mercos-v2 #products .product>.actions{margin:0!important}
+  body.mercos-v2 #products .product>.actions{display:flex!important}
+}
+
+/* modais */
+body.mercos-v2 .modal{background:rgba(38,31,45,.38)!important;backdrop-filter:blur(2px)}
+body.mercos-v2 .sheet{border-radius:8px!important}
+body.mercos-v2 .sheethead{border-bottom:1px solid #eeeaf0!important;padding-bottom:12px!important}
+body.mercos-v2 .sheethead h2{color:#403a45!important}
+body.mercos-v2 .close{background:#f3f1f5!important;color:#6d6672!important;border-radius:5px!important}
+body.mercos-v2 .item{background:#faf9fb!important;border-color:#e6e3e9!important}
+body.mercos-v2 .totalbox{background:#f5f1fa!important;border-color:#ddd4e8!important}
+body.mercos-v2 .totalbox strong{color:#6534a8!important}
+body.mercos-v2 .stickyfoot{background:linear-gradient(transparent,#fff 28%)!important}
+
+/* login V2 */
+body.mercos-v2 .login{background:linear-gradient(145deg,#f7f5fa,#eee9f5)!important}
+body.mercos-v2 .loginbox{background:#fff!important;border:1px solid #ded9e5!important;box-shadow:0 24px 70px rgba(52,38,67,.16)!important;border-radius:8px!important;color:#39333f!important}
+body.mercos-v2 .login h2{color:#39333f!important}
+body.mercos-v2 .login p{color:#8d8793!important}
+body.mercos-v2 .loginmsg{color:#b27a20!important}
+
+/* barra de contexto */
+body.mercos-v2 .v2-context{display:flex;align-items:center;gap:20px;border-bottom:1px solid #e8e5eb;margin:-4px 0 18px;padding:0 2px 9px;color:#918b96;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+body.mercos-v2 .v2-context span.active{color:#513080;position:relative}
+body.mercos-v2 .v2-context span.active:after{content:"";position:absolute;left:0;right:0;height:2px;background:#6534a8;bottom:-10px}
+
+@media(max-width:899px){
+  body.mercos-v2 main{padding:14px 12px 94px!important}
+  body.mercos-v2 .nav{background:#fff!important;box-shadow:0 -4px 14px rgba(30,20,40,.05)!important}
+  body.mercos-v2 .nav button.on{box-shadow:inset 0 3px #6534a8!important}
+  body.mercos-v2 .v2-nav-section{display:none!important}
+  body.mercos-v2 #home .pd-filters{grid-template-columns:1fr 1fr!important}
+  body.mercos-v2 #home .pd-kpis{grid-template-columns:1fr 1fr!important}
+  body.mercos-v2 #home .pd-main-grid,body.mercos-v2 #home .pd-bottom-grid{grid-template-columns:1fr!important}
+  body.mercos-v2 #home .pd-head{align-items:flex-start!important;flex-direction:column!important}
+}
+@media(max-width:520px){
+  body.mercos-v2 #home .pd-kpis{grid-template-columns:1fr!important}
+  body.mercos-v2 #home .pd-filters{grid-template-columns:1fr!important}
+}
