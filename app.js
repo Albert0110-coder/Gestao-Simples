@@ -39,7 +39,7 @@
 
   applyPrimeBranding();
 
-  var files=['core_v8.js?v=21','sales_v8.js?v=21','admin_v8.js?v=21','prime_custom_v9.js?v=21','prime_service_v10.js?v=21','prime_permissions_v11.js?v=21','prime_product_code_v12.js?v=21','prime_preview_v13.js?v=21','prime_assignment_v14.js?v=21','prime_product_picker_v15.js?v=21','prime_receipt_v19.js?v=21','prime_stage_receipt_v20.js?v=21'];
+  var files=['core_v8.js?v=22','sales_v8.js?v=22','admin_v8.js?v=22','prime_custom_v9.js?v=22','prime_service_v10.js?v=22','prime_permissions_v11.js?v=22','prime_product_code_v12.js?v=22','prime_preview_v13.js?v=22','prime_assignment_v14.js?v=22','prime_product_picker_v15.js?v=22','prime_receipt_v19.js?v=22','prime_stage_receipt_v20.js?v=22'];
   function load(i){
     if(i>=files.length)return;
     var s=document.createElement('script');
