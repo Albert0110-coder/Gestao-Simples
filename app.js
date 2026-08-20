@@ -6,22 +6,23 @@
   var appleTitle=document.querySelector('meta[name="apple-mobile-web-app-title"]');
   if(appleTitle)appleTitle.setAttribute('content','Prime');
 
-  var logo='assets/prime-logo-transparent-v42.png?v=44';
-  document.querySelectorAll('.prime-official-header-mark img,.prime-official-nav-logo,.prime-official-login-logo').forEach(function(img){
+  var logo='assets/prime-logo-transparent-v42.png?v=45';
+  document.querySelectorAll('.prime-official-header-mark img,.prime-official-nav-logo,.prime-official-login-logo,.prime-logo-header img,.prime-logo-nav,.prime-logo-login').forEach(function(img){
     img.removeAttribute('onerror');
     img.src=logo;
     img.alt='Prime';
   });
 
   var style=document.createElement('style');
-  style.textContent='body.prime-app-loading main{visibility:hidden}.login p{text-align:center;margin:0 0 14px}';
+  style.id='primeBootV45';
+  style.textContent='body.prime-app-loading{visibility:hidden!important}html{background:#070914!important}.login p{text-align:center;margin:0 0 14px}';
   document.head.appendChild(style);
 
   function finishBoot(){
     if(document.body)document.body.classList.remove('prime-app-loading');
   }
 
-  var files=['core_v8.js?v=44','sales_v8.js?v=44','admin_v8.js?v=44','prime_custom_v9.js?v=44','prime_service_v10.js?v=44','prime_permissions_v11.js?v=44','prime_product_code_v12.js?v=44','prime_preview_v13.js?v=44','prime_assignment_v14.js?v=44','prime_product_picker_v15.js?v=44','prime_receipt_v19.js?v=44','prime_stage_receipt_v20.js?v=44','prime_stock_v25.js?v=44','prime_procurement_v26.js?v=44','prime_quote_admin_restore_v28.js?v=44','prime_user_permissions_v31.js?v=44','prime_operational_dashboard_v31.js?v=44','prime_nav_cleanup_v32.js?v=44','prime_workspace_v33.js?v=44','prime_procurement_layout_cleanup_v34.js?v=44','prime_brand_v43.js?v=44','prime_theme_v44.js?v=44'];
+  var files=['core_v8.js?v=45','sales_v8.js?v=45','admin_v8.js?v=45','prime_custom_v9.js?v=45','prime_service_v10.js?v=45','prime_permissions_v11.js?v=45','prime_product_code_v12.js?v=45','prime_preview_v13.js?v=45','prime_assignment_v14.js?v=45','prime_product_picker_v15.js?v=45','prime_receipt_v19.js?v=45','prime_stage_receipt_v20.js?v=45','prime_stock_v25.js?v=45','prime_procurement_v26.js?v=45','prime_quote_admin_restore_v28.js?v=45','prime_user_permissions_v31.js?v=45','prime_operational_dashboard_v31.js?v=45','prime_nav_cleanup_v32.js?v=45','prime_workspace_v33.js?v=45','prime_procurement_layout_cleanup_v34.js?v=45','prime_brand_v43.js?v=45','prime_theme_v45.js?v=45'];
 
   function load(i){
     if(i>=files.length){
