@@ -8,6 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Prime">
 <title>Prime</title>
+<link rel="icon" type="image/png" href="assets/prime-logo-transparent-v42.png?v=46">
+<link rel="apple-touch-icon" href="assets/prime-logo-transparent-v42.png?v=46">
+<meta name="application-name" content="Prime">
 <style>
 :root{--bg:#07110d;--panel:#0d1a14;--panel2:#12231b;--line:#20372b;--text:#f2f7f4;--muted:#8fa69a;--green:#5de19c;--green2:#8ff0bd;--red:#ff727f;--yellow:#ffc960;--blue:#75bfff;--shadow:0 14px 40px #0005}
 *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:92px}button,input,select,textarea{font:inherit}button{cursor:pointer}
@@ -44,5 +47,5 @@ body.prime-app-loading{visibility:hidden!important}
 <div id="suppliersModal" class="modal"><div class="sheet"><div class="sheethead"><h2>Fornecedores</h2><button class="close" onclick="closeModal('suppliersModal')">×</button></div><button class="primary" style="width:100%;margin-bottom:12px" onclick="openSupplier()">＋ Fornecedor</button><div id="suppliersList" class="list"></div></div></div>
 <div id="supplierForm" class="modal"><div class="sheet"><div class="sheethead"><h2 id="supplierTitle">Fornecedor</h2><button class="close" onclick="closeModal('supplierForm')">×</button></div><label class="field">Nome<input id="sName"></label><label class="field" style="margin-top:10px">Telefone<input id="sPhone"></label><label class="field" style="margin-top:10px">Endereço<input id="sAddress"></label><div class="stickyfoot"><button class="secondary" onclick="closeModal('supplierForm')">Cancelar</button><button class="primary" onclick="saveSupplier()">Salvar</button></div></div></div>
 <div id="usersModal" class="modal"><div class="sheet"><div class="sheethead"><h2>Usuários</h2><button class="close" onclick="closeModal('usersModal')">×</button></div><div class="card"><div class="grid2"><label class="field">Usuário<input id="uName" autocapitalize="none"></label><label class="field">Senha<input id="uPass" type="password"></label></div><label class="field" style="margin-top:9px">Perfil<select id="uRole"><option value="user">Usuário</option><option value="admin">Administrador</option></select></label><button class="primary" style="width:100%;margin-top:10px" onclick="saveUser()">Criar / redefinir</button></div><div id="usersList" class="list" style="margin-top:12px"></div></div></div>
-<script src="app.js?v=45"></script>
+<script src="app.js?v=46"></script>
 </body></html>
