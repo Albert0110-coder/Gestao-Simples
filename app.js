@@ -2,12 +2,23 @@
   window.__primeDeferBoot=true;
   if(document.body)document.body.classList.add('prime-app-loading');
 
+  var fallbackLogo='https://raw.githubusercontent.com/Albert0110-coder/Gestao-Simples/a32d249fa2f89e2b167c1a99c63c567e6111bf5d/assets/prime-logo-transparent.png';
+
+  function logoUrl(){
+    try{return new URL('assets/prime-logo-transparent.png?v=41',window.location.href).href}catch(e){return 'assets/prime-logo-transparent.png?v=41'}
+  }
+
+  function setLogoSource(img){
+    if(!img)return;
+    img.onerror=function(){img.onerror=null;img.src=fallbackLogo;};
+    img.src=logoUrl();
+  }
+
   function applyPrimeBranding(){
     document.title='Prime';
     var appleTitle=document.querySelector('meta[name="apple-mobile-web-app-title"]');
     if(appleTitle)appleTitle.setAttribute('content','Prime');
 
-    var logoSrc='assets/prime-logo-transparent.png?v=40';
     var style=document.createElement('style');
     style.textContent='\nbody.prime-app-loading main{visibility:hidden}\n.prime-official-nav-logo{display:block;width:178px;max-width:100%;height:auto;object-fit:contain}\n.navbrand{justify-content:center!important}\n.prime-official-header-mark{width:82px!important;height:46px!important;background:transparent!important;border-radius:0!important;overflow:visible!important;padding:0!important}\n.prime-official-header-mark img{display:block;width:100%;height:100%;object-fit:contain}\n.prime-official-login-logo{display:block;width:min(300px,92%);height:auto;margin:0 auto 15px;object-fit:contain}\n.login h2{display:none!important}\n.login p{text-align:center;margin:0 0 14px}\n.loginbox{overflow:visible}\n@media(min-width:900px){header .brand .prime-official-header-mark{display:none!important}.navbrand{padding:2px 7px 17px!important}}\n';
     document.head.appendChild(style);
@@ -15,11 +26,15 @@
     var headerMark=document.querySelector('header .brand .mark');
     if(headerMark){
       headerMark.className='mark prime-official-header-mark';
-      headerMark.innerHTML='<img src="'+logoSrc+'" alt="Logo Prime">';
+      headerMark.innerHTML='<img alt="Logo Prime">';
+      setLogoSource(headerMark.querySelector('img'));
     }
 
     var navBrand=document.querySelector('.navbrand');
-    if(navBrand)navBrand.innerHTML='<img class="prime-official-nav-logo" src="'+logoSrc+'" alt="Logo Prime">';
+    if(navBrand){
+      navBrand.innerHTML='<img class="prime-official-nav-logo" alt="Logo Prime">';
+      setLogoSource(navBrand.querySelector('img'));
+    }
 
     var login=document.getElementById('loginScreen');
     if(login){
@@ -27,9 +42,9 @@
       if(loginMark){
         var img=document.createElement('img');
         img.className='prime-official-login-logo';
-        img.src=logoSrc;
         img.alt='Logo Prime';
         loginMark.replaceWith(img);
+        setLogoSource(img);
       }
       var loginTitle=login.querySelector('h2');
       if(loginTitle)loginTitle.style.setProperty('display','none','important');
@@ -45,7 +60,7 @@
 
   applyPrimeBranding();
 
-  var files=['core_v8.js?v=40','sales_v8.js?v=40','admin_v8.js?v=40','prime_custom_v9.js?v=40','prime_service_v10.js?v=40','prime_permissions_v11.js?v=40','prime_product_code_v12.js?v=40','prime_preview_v13.js?v=40','prime_assignment_v14.js?v=40','prime_product_picker_v15.js?v=40','prime_receipt_v19.js?v=40','prime_stage_receipt_v20.js?v=40','prime_stock_v25.js?v=40','prime_procurement_v26.js?v=40','prime_quote_admin_restore_v28.js?v=40','prime_user_permissions_v31.js?v=40','prime_operational_dashboard_v31.js?v=40','prime_nav_cleanup_v32.js?v=40','prime_workspace_v33.js?v=40','prime_procurement_layout_cleanup_v34.js?v=40','prime_official_logo_v40.js?v=40'];
+  var files=['core_v8.js?v=41','sales_v8.js?v=41','admin_v8.js?v=41','prime_custom_v9.js?v=41','prime_service_v10.js?v=41','prime_permissions_v11.js?v=41','prime_product_code_v12.js?v=41','prime_preview_v13.js?v=41','prime_assignment_v14.js?v=41','prime_product_picker_v15.js?v=41','prime_receipt_v19.js?v=41','prime_stage_receipt_v20.js?v=41','prime_stock_v25.js?v=41','prime_procurement_v26.js?v=41','prime_quote_admin_restore_v28.js?v=41','prime_user_permissions_v31.js?v=41','prime_operational_dashboard_v31.js?v=41','prime_nav_cleanup_v32.js?v=41','prime_workspace_v33.js?v=41','prime_procurement_layout_cleanup_v34.js?v=41','prime_official_logo_v41.js?v=41'];
   function load(i){
     if(i>=files.length){
       window.__primeDeferBoot=false;
