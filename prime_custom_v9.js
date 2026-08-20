@@ -13,9 +13,11 @@
   }
 
   function paymentStatus(obj){
-    if(obj&&obj.status==='paid')return 'Pago';
-    if(obj&&obj.status==='pending')return 'Pendente';
-    return '';
+    var stage=String(obj&&obj.orderStage||'order');
+    if(stage==='separation')return 'Em separação';
+    if(stage==='invoiced')return 'Faturado';
+    if(stage==='completed')return 'Concluído';
+    return 'Pedido';
   }
 
   function lockedQuoteItem(existing){
