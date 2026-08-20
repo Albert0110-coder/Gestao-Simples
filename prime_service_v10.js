@@ -5,7 +5,7 @@
     var base=String((obj&&obj.quoteId)||(obj&&obj.id)||'');
     var h=0;
     for(var i=0;i<base.length;i++)h=(h*31+base.charCodeAt(i))%9000;
-    return 1000+h;
+    return 1+h;
   }
 
   function serviceNo(obj){
@@ -13,7 +13,7 @@
     return Number.isFinite(n)&&n>0?Math.trunc(n):legacyServiceNo(obj);
   }
 
-  function serviceTag(obj){return '#'+serviceNo(obj)}
+  function serviceTag(obj){return '#'+String(serviceNo(obj)).padStart(2,'0')}
   window.serviceNo=serviceNo;
   window.serviceTag=serviceTag;
 
@@ -30,12 +30,12 @@
 
   window.orderCard=function(o){
     var c=customer(o.party),who=isAdmin()&&o.createdBy?' · '+esc(o.createdBy):'';
-    return '<div class="row"><div class="rowtop"><div><h4>'+esc(c?c.name:'Cliente não informado')+'</h4><div class="meta"><strong style="color:var(--green);font-size:12px">'+serviceTag(o)+'</strong> · '+esc(o.date||'')+' · '+(o.items||[]).length+' item(ns)'+who+'</div></div><div style="text-align:right"><div class="value">'+money(orderTotal(o))+'</div><span class="pill">'+stageLabel(o.orderStage)+'</span></div></div>'+stagePipeline(o.orderStage)+'<div class="actions">'+stageSelect(o)+'<button class="secondary" onclick="downloadCommercial(\'order\',\''+o.id+'\')">Baixar pedido '+serviceTag(o)+'</button>'+(isAdmin()?'<button class="danger" onclick="deleteEntity(\'sales\',\''+o.id+'\')">Excluir</button>':'')+'</div></div>';
+    return '<div class="row"><div class="rowtop"><div><h4>'+esc(c?c.name:'Cliente não informado')+'</h4><div class="meta"><strong style="color:var(--green);font-size:12px">Pedido '+serviceTag(o)+'</strong> · '+esc(o.date||'')+' · '+(o.items||[]).length+' item(ns)'+who+'</div></div><div style="text-align:right"><div class="value">'+money(orderTotal(o))+'</div><span class="pill">'+stageLabel(o.orderStage)+'</span></div></div>'+stagePipeline(o.orderStage)+'<div class="actions">'+stageSelect(o)+'<button class="secondary" onclick="downloadCommercial(\'order\',\''+o.id+'\')">Baixar pedido '+serviceTag(o)+'</button>'+(isAdmin()?'<button class="danger" onclick="deleteEntity(\'sales\',\''+o.id+'\')">Excluir</button>':'')+'</div></div>';
   };
 
   window.quoteCard=function(q){
     var c=customer(q.party),who=isAdmin()&&q.createdBy?' · '+esc(q.createdBy):'',valid=q.validUntil?' · válido até '+esc(q.validUntil):'';
-    return '<div class="row"><div class="rowtop"><div><h4>'+esc(c?c.name:'Cliente não informado')+'</h4><div class="meta"><strong style="color:var(--green);font-size:12px">'+serviceTag(q)+'</strong> · '+esc(q.date||'')+valid+' · '+(q.items||[]).length+' item(ns)'+who+'</div></div><div style="text-align:right"><div class="value">'+money(orderTotal(q))+'</div><span class="pill">Em negociação</span></div></div><div class="pipeline"><span class="step on">Orçamento</span><span class="arrow">›</span><span class="step">Pedido</span><span class="arrow">›</span><span class="step">Faturado</span><span class="arrow">›</span><span class="step">Concluído</span></div><div class="actions"><button class="secondary" onclick="downloadCommercial(\'quote\',\''+q.id+'\')">Baixar orçamento '+serviceTag(q)+'</button><button class="secondary" onclick="openQuote(\''+q.id+'\')">Editar</button><button class="primary" onclick="convertQuote(\''+q.id+'\')">Faturar '+serviceTag(q)+'</button>'+(isAdmin()?'<button class="danger" onclick="deleteEntity(\'quotes\',\''+q.id+'\')">Excluir</button>':'')+'</div></div>';
+    return '<div class="row"><div class="rowtop"><div><h4>'+esc(c?c.name:'Cliente não informado')+'</h4><div class="meta"><strong style="color:var(--green);font-size:12px">Orçamento '+serviceTag(q)+'</strong> · '+esc(q.date||'')+valid+' · '+(q.items||[]).length+' item(ns)'+who+'</div></div><div style="text-align:right"><div class="value">'+money(orderTotal(q))+'</div><span class="pill">Em negociação</span></div></div><div class="pipeline"><span class="step on">Orçamento</span><span class="arrow">›</span><span class="step">Pedido</span><span class="arrow">›</span><span class="step">Faturado</span><span class="arrow">›</span><span class="step">Concluído</span></div><div class="actions"><button class="secondary" onclick="downloadCommercial(\'quote\',\''+q.id+'\')">Baixar orçamento '+serviceTag(q)+'</button><button class="secondary" onclick="openQuote(\''+q.id+'\')">Editar</button><button class="primary" onclick="convertQuote(\''+q.id+'\')">Faturar '+serviceTag(q)+'</button>'+(isAdmin()?'<button class="danger" onclick="deleteEntity(\'quotes\',\''+q.id+'\')">Excluir</button>':'')+'</div></div>';
   };
 
   var originalCommercialDoc=window.commercialDoc;
@@ -55,7 +55,7 @@
     window.convertQuote=async function(id){
       var q=quoteById(id);
       if(!q)return;
-      if(!confirm('Cliente confirmou o orçamento '+serviceTag(q)+'? Ele sairá de Orçamentos e virará um Pedido mantendo o mesmo número de atendimento.'))return;
+      if(!confirm('Cliente confirmou o orçamento '+serviceTag(q)+'? Ele sairá de Orçamentos e virará um Pedido mantendo o mesmo código.'))return;
       try{
         setSync('Faturando orçamento '+serviceTag(q)+'...');
         await api('convert_quote',{quote_id:id});
