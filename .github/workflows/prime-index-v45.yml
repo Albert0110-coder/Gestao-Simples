@@ -1,0 +1,42 @@
+name: Ajuste inicial Prime v45
+
+on:
+  push:
+    paths:
+      - '.github/workflows/prime-index-v45.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-index:
+    if: contains(github.event.head_commit.message, 'Aplicar correção inicial v45')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Atualizar carregamento inicial
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('<meta name="theme-color" content="#07110d">','<meta name="theme-color" content="#070914">')
+          s=s.replace('<body>','<body class="prime-app-loading">',1)
+          if 'body.prime-app-loading{visibility:hidden!important}' not in s:
+              s=s.replace('</style>','body.prime-app-loading{visibility:hidden!important}\n</style>',1)
+          s=s.replace('assets/prime-logo-transparent.png?v=41','assets/prime-logo-transparent-v42.png?v=45')
+          s=re.sub(r'\s+onerror="[^"]*"','',s)
+          s=s.replace('width:82px!important;height:46px!important','width:41px!important;height:23px!important')
+          s=s.replace('width:178px;max-width:100%','width:89px;max-width:50%')
+          s=s.replace('width:min(300px,92%)','width:min(150px,46%)')
+          s=s.replace('app.js?v=41','app.js?v=45')
+          p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name "Prime System"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Corrige carregamento inicial e elimina flash visual"
+          git push
