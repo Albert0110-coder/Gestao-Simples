@@ -1,8 +1,8 @@
 (function(){
   'use strict';
 
-  var LOGO='assets/prime-logo-transparent-v42.png?v=47';
-  var TAB_TITLE='\u200B';
+  var LOGO='assets/prime-logo-transparent-v42.png?v=48';
+  var TAB_TITLE='Gestão Prime';
   window.PRIME_LOGO_URL=LOGO;
 
   function setLogo(img){
@@ -45,7 +45,7 @@
   var old=document.getElementById('primeBrandV43');
   if(old)old.remove();
   var style=document.createElement('style');
-  style.id='primeBrandV47';
+  style.id='primeBrandV48';
   style.textContent='\n.prime-logo-nav,.prime-official-nav-logo{display:block!important;width:89px!important;max-width:50%!important;height:auto!important;object-fit:contain}.navbrand{justify-content:center!important}.prime-logo-header,.prime-official-header-mark{width:41px!important;height:23px!important;background:transparent!important;border-radius:0!important;overflow:visible!important;padding:0!important}.prime-logo-header img,.prime-official-header-mark img{display:block!important;width:100%!important;height:100%!important;object-fit:contain}.prime-logo-login,.prime-official-login-logo{display:block!important;width:min(150px,46%)!important;height:auto!important;margin:0 auto 15px!important;object-fit:contain}.login h2{display:none!important}.loginbox{overflow:visible}@media(min-width:900px){header .brand .prime-logo-header,header .brand .prime-official-header-mark{display:none!important}.navbrand{padding:2px 7px 17px!important}}\n';
   document.head.appendChild(style);
 
