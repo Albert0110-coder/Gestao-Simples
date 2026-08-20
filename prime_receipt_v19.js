@@ -10,6 +10,14 @@
     return '#'+String(Math.max(1,Math.trunc(n))).padStart(2,'0');
   }
 
+  function orderStageLabel(obj){
+    var stage=String(obj&&obj.orderStage||'order');
+    if(stage==='separation')return 'Em separação';
+    if(stage==='invoiced')return 'Faturado';
+    if(stage==='completed')return 'Concluído';
+    return 'Pedido';
+  }
+
   function addProductCodes(html,obj){
     var items=(obj&&obj.items)||[];
     var idx=0;
@@ -42,6 +50,16 @@
     html=html.replace(/<div class="info"><span>Validade<\/span><strong>[\s\S]*?<\/strong><\/div>/gi,'');
     html=html.replace(/<div class="terms">Este orçamento é válido até[\s\S]*?<\/div>/gi,'');
     if(kind==='quote')html=html.replace('grid-template-columns:repeat(4,1fr)','grid-template-columns:repeat(3,1fr)');
+
+    // A situação do pedido acompanha a etapa operacional, não o pagamento.
+    if(kind==='order'){
+      var situation='<div class="info"><span>Situação</span><strong>'+esc(orderStageLabel(obj))+'</strong></div>';
+      if(/<div class="info"><span>Situação<\/span><strong>[\s\S]*?<\/strong><\/div>/i.test(html)){
+        html=html.replace(/<div class="info"><span>Situação<\/span><strong>[\s\S]*?<\/strong><\/div>/i,situation);
+      }else{
+        html=html.replace(/(<section class="grid">[\s\S]*?)(<\/section>)/i,'$1'+situation+'$2');
+      }
+    }
 
     // Exibe o código cadastrado de cada produto no recibo.
     html=addProductCodes(html,obj);
