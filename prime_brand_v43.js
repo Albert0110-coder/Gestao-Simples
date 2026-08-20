@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var LOGO='assets/prime-logo-transparent-v42.png?v=43';
+  var LOGO='assets/prime-logo-transparent-v42.png?v=45';
   window.PRIME_LOGO_URL=LOGO;
 
   function setLogo(img){
