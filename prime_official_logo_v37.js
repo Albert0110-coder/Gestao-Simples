@@ -2,7 +2,7 @@
   'use strict';
 
   function logoUrl(){
-    try{return new URL('assets/prime-logo-official.svg?v=37',window.location.href).href}catch(e){return 'assets/prime-logo-official.svg?v=37'}
+    try{return new URL('assets/prime-logo-official.svg?v=38',window.location.href).href}catch(e){return 'assets/prime-logo-official.svg?v=38'}
   }
 
   function applyInterfaceLogo(){
@@ -15,14 +15,14 @@
     }
 
     var navBrand=document.querySelector('.navbrand');
-    if(navBrand&&!navBrand.querySelector('.prime-official-nav-logo')){
+    if(navBrand){
       navBrand.innerHTML='<img class="prime-official-nav-logo" src="'+src+'" alt="Logo Prime">';
     }
 
     var login=document.getElementById('loginScreen');
     if(login){
-      var old=login.querySelector('.mark,.prime-login-symbol,.prime-login-logo');
-      if(old&&!old.classList.contains('prime-official-login-logo')){
+      var old=login.querySelector('.mark,.prime-login-symbol,.prime-login-logo,.prime-official-login-logo');
+      if(old){
         var img=document.createElement('img');
         img.className='prime-official-login-logo';
         img.src=src;
@@ -35,10 +35,11 @@
   }
 
   function injectStyle(){
-    if(document.getElementById('primeOfficialLogoStyleV37'))return;
+    if(document.getElementById('primeOfficialLogoStyleV38'))return;
+    var old=document.getElementById('primeOfficialLogoStyleV37');if(old)old.remove();
     var style=document.createElement('style');
-    style.id='primeOfficialLogoStyleV37';
-    style.textContent='\n.prime-official-nav-logo{display:block;width:178px;max-width:100%;height:auto;border-radius:10px;background:#fff}.navbrand{justify-content:center!important}.prime-official-header-mark{width:82px!important;height:46px!important;background:#fff!important;border-radius:7px!important;overflow:hidden!important;padding:0!important}.prime-official-header-mark img{display:block;width:100%;height:100%;object-fit:cover}.prime-official-login-logo{display:block;width:min(300px,92%);height:auto;margin:0 auto 15px;border-radius:13px;background:#fff}.loginbox{overflow:visible}.login h2{display:none!important}@media(min-width:900px){header .brand .prime-official-header-mark{display:none!important}.navbrand{padding:2px 7px 17px!important}}@media(max-width:899px){.prime-official-header-mark{display:block!important}}\n';
+    style.id='primeOfficialLogoStyleV38';
+    style.textContent='\n.prime-official-nav-logo{display:block;width:178px;max-width:100%;height:auto;border-radius:10px;background:#fff;object-fit:contain}.navbrand{justify-content:center!important}.prime-official-header-mark{width:82px!important;height:46px!important;background:#fff!important;border-radius:7px!important;overflow:hidden!important;padding:0!important}.prime-official-header-mark img{display:block;width:100%;height:100%;object-fit:contain}.prime-official-login-logo{display:block;width:min(300px,92%);height:auto;margin:0 auto 15px;border-radius:13px;background:#fff;object-fit:contain}.loginbox{overflow:visible}.login h2{display:none!important}@media(min-width:900px){header .brand .prime-official-header-mark{display:none!important}.navbrand{padding:2px 7px 17px!important}}@media(max-width:899px){.prime-official-header-mark{display:block!important}}\n';
     document.head.appendChild(style);
   }
 
@@ -50,9 +51,9 @@
     window.commercialDoc=function(obj,kind){
       var html=previousCommercialDoc(obj,kind);
       var src=logoUrl();
-      var official='<header class="brandhead official-brandhead-v37"><img class="official-receipt-logo-v37" src="'+src+'" alt="Prime"><div class="company"><span>Atendimento e serviços</span><span class="phone">WhatsApp: (93) 98436-5610</span></div></header><div class="accent"></div>';
+      var official='<header class="brandhead official-brandhead-v38"><img class="official-receipt-logo-v38" src="'+src+'" alt="Prime"><div class="company"><span>Atendimento e serviços</span><span class="phone">WhatsApp: (93) 98436-5610</span></div></header><div class="accent"></div>';
       html=String(html||'').replace(/<header class="brandhead">[\s\S]*?<\/header><div class="accent"><\/div>/i,official);
-      html=html.replace('</style>','.official-brandhead-v37{min-height:150px!important;padding:12px 24px!important}.official-receipt-logo-v37{display:block;width:270px;max-width:62%;height:auto;border-radius:9px;background:#fff}@media(max-width:650px){.official-brandhead-v37{min-height:112px!important;padding:10px 14px!important}.official-receipt-logo-v37{width:230px;max-width:100%}}@media print{.official-brandhead-v37{min-height:138px!important}.official-receipt-logo-v37{width:250px}}</style>');
+      html=html.replace('</style>','.official-brandhead-v38{min-height:150px!important;padding:12px 24px!important}.official-receipt-logo-v38{display:block;width:270px;max-width:62%;height:auto;border-radius:9px;background:#fff;object-fit:contain}@media(max-width:650px){.official-brandhead-v38{min-height:112px!important;padding:10px 14px!important}.official-receipt-logo-v38{width:230px;max-width:100%}}@media print{.official-brandhead-v38{min-height:138px!important}.official-receipt-logo-v38{width:250px}}</style>');
       return html;
     };
   }
