@@ -1,0 +1,1 @@
+(function(){'use strict';window.PRIME_LOGO_URL='assets/prime-logo-transparent-v42.png?v=42';})();
