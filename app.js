@@ -39,7 +39,12 @@
 
   applyPrimeBranding();
 
-  var files=['core_v8.js?v=25','sales_v8.js?v=25','admin_v8.js?v=25','prime_custom_v9.js?v=25','prime_service_v10.js?v=25','prime_permissions_v11.js?v=25','prime_product_code_v12.js?v=25','prime_preview_v13.js?v=25','prime_assignment_v14.js?v=25','prime_product_picker_v15.js?v=25','prime_receipt_v19.js?v=25','prime_stage_receipt_v20.js?v=25','prime_dashboard_v23.js?v=25','prime_stock_v25.js?v=25'];
+  var theme=document.createElement('link');
+  theme.rel='stylesheet';
+  theme.href='mercos_v2.css?v=1';
+  document.head.appendChild(theme);
+
+  var files=['core_v8.js?v=25','sales_v8.js?v=25','admin_v8.js?v=25','prime_custom_v9.js?v=25','prime_service_v10.js?v=25','prime_permissions_v11.js?v=25','prime_product_code_v12.js?v=25','prime_preview_v13.js?v=25','prime_assignment_v14.js?v=25','prime_product_picker_v15.js?v=25','prime_receipt_v19.js?v=25','prime_stage_receipt_v20.js?v=25','prime_dashboard_v23.js?v=25','prime_stock_v25.js?v=25','mercos_v2.js?v=1'];
   function load(i){
     if(i>=files.length)return;
     var s=document.createElement('script');
