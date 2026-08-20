@@ -1,11 +1,14 @@
 (function(){
+  window.__primeDeferBoot=true;
+  if(document.body)document.body.classList.add('prime-app-loading');
+
   function applyPrimeBranding(){
     document.title='Prime';
     var appleTitle=document.querySelector('meta[name="apple-mobile-web-app-title"]');
     if(appleTitle)appleTitle.setAttribute('content','Prime');
 
     var style=document.createElement('style');
-    style.textContent='\n.prime-login-symbol{display:block;width:126px;height:148px;margin:0 auto 8px}\n.prime-login-symbol svg{display:block;width:100%;height:100%;overflow:visible}\n.login h2{display:block!important;text-align:center;font-size:30px;font-weight:900;letter-spacing:.08em;margin:0 0 8px;color:var(--text)}\n.login p{text-align:center;margin:0 0 14px}\n.loginbox{overflow:visible}\n';
+    style.textContent='\nbody.prime-app-loading main{visibility:hidden}\n.prime-login-symbol{display:block;width:126px;height:148px;margin:0 auto 8px}\n.prime-login-symbol svg{display:block;width:100%;height:100%;overflow:visible}\n.login h2{display:block!important;text-align:center;font-size:30px;font-weight:900;letter-spacing:.08em;margin:0 0 8px;color:var(--text)}\n.login p{text-align:center;margin:0 0 14px}\n.loginbox{overflow:visible}\n';
     document.head.appendChild(style);
 
     var headerMark=document.querySelector('header .brand .mark');
@@ -37,15 +40,25 @@
     if(accountBrand)accountBrand.textContent='Prime';
   }
 
+  function finishBoot(){
+    if(document.body)document.body.classList.remove('prime-app-loading');
+  }
+
   applyPrimeBranding();
 
-  var files=['core_v8.js?v=34','sales_v8.js?v=34','admin_v8.js?v=34','prime_custom_v9.js?v=34','prime_service_v10.js?v=34','prime_permissions_v11.js?v=34','prime_product_code_v12.js?v=34','prime_preview_v13.js?v=34','prime_assignment_v14.js?v=34','prime_product_picker_v15.js?v=34','prime_receipt_v19.js?v=34','prime_stage_receipt_v20.js?v=34','prime_stock_v25.js?v=34','prime_procurement_v26.js?v=34','prime_quote_admin_restore_v28.js?v=34','prime_user_permissions_v31.js?v=34','prime_operational_dashboard_v31.js?v=34','prime_nav_cleanup_v32.js?v=34','prime_workspace_v33.js?v=34','prime_procurement_layout_cleanup_v34.js?v=34'];
+  var files=['core_v8.js?v=35','sales_v8.js?v=35','admin_v8.js?v=35','prime_custom_v9.js?v=35','prime_service_v10.js?v=35','prime_permissions_v11.js?v=35','prime_product_code_v12.js?v=35','prime_preview_v13.js?v=35','prime_assignment_v14.js?v=35','prime_product_picker_v15.js?v=35','prime_receipt_v19.js?v=35','prime_stage_receipt_v20.js?v=35','prime_stock_v25.js?v=35','prime_procurement_v26.js?v=35','prime_quote_admin_restore_v28.js?v=35','prime_user_permissions_v31.js?v=35','prime_operational_dashboard_v31.js?v=35','prime_nav_cleanup_v32.js?v=35','prime_workspace_v33.js?v=35','prime_procurement_layout_cleanup_v34.js?v=35'];
   function load(i){
-    if(i>=files.length)return;
+    if(i>=files.length){
+      window.__primeDeferBoot=false;
+      if(typeof window.boot==='function'){
+        Promise.resolve(window.boot()).then(finishBoot,function(e){console.error(e);finishBoot()});
+      }else finishBoot();
+      return;
+    }
     var s=document.createElement('script');
     s.src=files[i];s.async=false;
     s.onload=function(){load(i+1)};
-    s.onerror=function(){var m=document.getElementById('loginMsg');if(m)m.textContent='Falha ao carregar o sistema. Atualize a página.';};
+    s.onerror=function(){var m=document.getElementById('loginMsg');if(m)m.textContent='Falha ao carregar o sistema. Atualize a página.';finishBoot()};
     document.head.appendChild(s);
   }
   load(0);
