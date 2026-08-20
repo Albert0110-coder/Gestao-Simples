@@ -39,7 +39,7 @@
 
   applyPrimeBranding();
 
-  var files=['core_v8.js?v=32','sales_v8.js?v=32','admin_v8.js?v=32','prime_custom_v9.js?v=32','prime_service_v10.js?v=32','prime_permissions_v11.js?v=32','prime_product_code_v12.js?v=32','prime_preview_v13.js?v=32','prime_assignment_v14.js?v=32','prime_product_picker_v15.js?v=32','prime_receipt_v19.js?v=32','prime_stage_receipt_v20.js?v=32','prime_stock_v25.js?v=32','prime_procurement_v26.js?v=32','prime_quote_admin_restore_v28.js?v=32','prime_user_permissions_v31.js?v=32','prime_operational_dashboard_v31.js?v=32','prime_nav_cleanup_v32.js?v=32'];
+  var files=['core_v8.js?v=33','sales_v8.js?v=33','admin_v8.js?v=33','prime_custom_v9.js?v=33','prime_service_v10.js?v=33','prime_permissions_v11.js?v=33','prime_product_code_v12.js?v=33','prime_preview_v13.js?v=33','prime_assignment_v14.js?v=33','prime_product_picker_v15.js?v=33','prime_receipt_v19.js?v=33','prime_stage_receipt_v20.js?v=33','prime_stock_v25.js?v=33','prime_procurement_v26.js?v=33','prime_quote_admin_restore_v28.js?v=33','prime_user_permissions_v31.js?v=33','prime_operational_dashboard_v31.js?v=33','prime_nav_cleanup_v32.js?v=33','prime_workspace_v33.js?v=33'];
   function load(i){
     if(i>=files.length)return;
     var s=document.createElement('script');
