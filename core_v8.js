@@ -52,12 +52,12 @@ async function doLogin(){
 window.doLogin=doLogin;
 
 async function afterLogin(){
-  $('hello').textContent='Olá, '+session.user.username;
-  $('moreUser').textContent=session.user.username;
-  $('roleLabel').textContent=isAdmin()?'Visão administrativa':'Minha carteira comercial';
-  $('moreRole').textContent=isAdmin()?'Administrador':'Usuário';
-  $('adminMenu').style.display=isAdmin()?'grid':'none';
-  $('addProductBtn').style.display=isAdmin()?'block':'none';
+  if($('hello'))$('hello').textContent='Olá, '+session.user.username;
+  if($('moreUser'))$('moreUser').textContent=session.user.username;
+  if($('roleLabel'))$('roleLabel').textContent=isAdmin()?'Visão administrativa':'Minha carteira comercial';
+  if($('moreRole'))$('moreRole').textContent=isAdmin()?'Administrador':'Usuário';
+  if($('adminMenu'))$('adminMenu').style.display=isAdmin()?'grid':'none';
+  if($('addProductBtn'))$('addProductBtn').style.display=isAdmin()?'block':'none';
   var bal=$('cBalance');if(bal&&bal.closest('.field'))bal.closest('.field').style.display=isAdmin()?'block':'none';
   initPeriod();
   await pull(false);
