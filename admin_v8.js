@@ -21,5 +21,6 @@ async function boot(){
   if(session&&session.token){$('loginScreen').classList.remove('on');try{await afterLogin()}catch(e){console.error(e);await logout()}}
   else{$('loginScreen').classList.add('on');setSync('Aguardando login')}
 }
+window.boot=boot;
 window.__gestaoAppReady=true;
-boot();
+if(!window.__primeDeferBoot)boot();
