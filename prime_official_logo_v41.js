@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  var LOGO='assets/prime-logo-transparent-v42.png?v=43';
+  var LOGO='assets/prime-logo-transparent-v42.png?v=44';
   var style=document.createElement('style');
   style.textContent='.prime-official-nav-logo{width:89px!important;max-width:50%!important}.prime-official-header-mark{width:41px!important;height:23px!important}.prime-official-login-logo{width:min(150px,46%)!important;height:auto!important}';
   document.head.appendChild(style);
@@ -13,4 +13,8 @@
       return html.replace(/<header class="brandhead">[\s\S]*?<\/header><div class="accent"><\/div>/i,brand);
     };
   }
+  var theme=document.createElement('script');
+  theme.src='prime_theme_v44.js?v=44';
+  theme.async=false;
+  document.head.appendChild(theme);
 })();
