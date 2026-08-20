@@ -41,7 +41,9 @@
     // Remove validade do recibo e o texto de validade no rodapé.
     html=html.replace(/<div class="info"><span>Validade<\/span><strong>[\s\S]*?<\/strong><\/div>/gi,'');
     html=html.replace(/<div class="terms">Este orçamento é válido até[\s\S]*?<\/div>/gi,'');
+    if(kind==='quote')html=html.replace('grid-template-columns:repeat(4,1fr)','grid-template-columns:repeat(3,1fr)');
 
+    // Exibe o código cadastrado de cada produto no recibo.
     html=addProductCodes(html,obj);
     return html;
   };
